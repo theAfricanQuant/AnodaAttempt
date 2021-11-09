@@ -78,7 +78,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      3 min read
     
 </span></p>
 
@@ -194,39 +194,6 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">SisengAI</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">i</span> <span class="o">=</span> <span class="s1">'EURUSD'</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-
-<span class="n">df</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
-
-<span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)[</span><span class="s1">'ret'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-
-<span class="n">dfDayRets</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">cats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Sunday'</span><span class="p">,</span><span class="s1">'Monday'</span><span class="p">,</span> <span class="s1">'Tuesday'</span><span class="p">,</span> <span class="s1">'Wednesday'</span><span class="p">,</span> <span class="s1">'Thursday'</span><span class="p">,</span> <span class="s1">'Friday'</span><span class="p">]</span>
-<span class="n">dfDayRets</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">dfDayRets</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">cats</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">dfDayRets</span><span class="o">.</span><span class="n">dayOfWeek</span><span class="p">,</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">ret</span><span class="p">)</span>
-<span class="c1"># Naming the x and y axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'total returns'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'day of the week'</span><span class="p">)</span>
-<span class="c1"># Giving the title for the plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'best day to trade </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<span class="c1"># Displaying the bar plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -260,37 +227,6 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="s1">'GBPCHF'</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-
-<span class="n">df</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
-
-<span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)[</span><span class="s1">'ret'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-
-<span class="n">dfDayRets</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">cats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Sunday'</span><span class="p">,</span><span class="s1">'Monday'</span><span class="p">,</span> <span class="s1">'Tuesday'</span><span class="p">,</span> <span class="s1">'Wednesday'</span><span class="p">,</span> <span class="s1">'Thursday'</span><span class="p">,</span> <span class="s1">'Friday'</span><span class="p">]</span>
-<span class="n">dfDayRets</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">dfDayRets</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">cats</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">dfDayRets</span><span class="o">.</span><span class="n">dayOfWeek</span><span class="p">,</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">ret</span><span class="p">)</span>
-<span class="c1"># Naming the x and y axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'total returns'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'day of the week'</span><span class="p">)</span>
-<span class="c1"># Giving the title for the plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'best day to trade </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<span class="c1"># Displaying the bar plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -322,37 +258,6 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="s1">'NAS100'</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-
-<span class="n">df</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
-
-<span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)[</span><span class="s1">'ret'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-
-<span class="n">dfDayRets</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">cats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Sunday'</span><span class="p">,</span><span class="s1">'Monday'</span><span class="p">,</span> <span class="s1">'Tuesday'</span><span class="p">,</span> <span class="s1">'Wednesday'</span><span class="p">,</span> <span class="s1">'Thursday'</span><span class="p">,</span> <span class="s1">'Friday'</span><span class="p">]</span>
-<span class="n">dfDayRets</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">dfDayRets</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">cats</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">dfDayRets</span><span class="o">.</span><span class="n">dayOfWeek</span><span class="p">,</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">ret</span><span class="p">)</span>
-<span class="c1"># Naming the x and y axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'total returns'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'day of the week'</span><span class="p">)</span>
-<span class="c1"># Giving the title for the plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'best day to trade </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<span class="c1"># Displaying the bar plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -395,32 +300,6 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="s2">"GBPJPY"</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-
-<span class="n">df</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day</span><span class="c1">#_name()</span>
-
-<span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)[</span><span class="s1">'ret'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">dfDayRets</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">ret</span><span class="p">)</span>
-<span class="c1"># Namimg the x and y axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'total returns'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'day of the week'</span><span class="p">)</span>
-<span class="c1"># Giving the title for the plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'best day to trade </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<span class="c1"># Displaying the bar plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -464,37 +343,6 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">'preparing plots'</span><span class="p">):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-
-    <span class="n">df</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
-    
-    <span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)[</span><span class="s1">'ret'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-    
-    <span class="n">dfDayRets</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">cats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Sunday'</span><span class="p">,</span><span class="s1">'Monday'</span><span class="p">,</span> <span class="s1">'Tuesday'</span><span class="p">,</span> <span class="s1">'Wednesday'</span><span class="p">,</span> <span class="s1">'Thursday'</span><span class="p">,</span> <span class="s1">'Friday'</span><span class="p">]</span>
-    <span class="n">dfDayRets</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">dfDayRets</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">cats</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)</span>
-    
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">dfDayRets</span><span class="o">.</span><span class="n">dayOfWeek</span><span class="p">,</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">ret</span><span class="p">)</span>
-    <span class="c1"># Naming the x and y axis</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'total returns'</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'day of the week'</span><span class="p">)</span>
-    <span class="c1"># Giving the title for the plot</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'best day to trade </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-    <span class="c1"># Displaying the bar plot</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -879,31 +727,6 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">'preparing plots'</span><span class="p">):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-    
-    <span class="n">df</span><span class="p">[</span><span class="s1">'dayOfWeek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day</span><span class="c1">#_name()</span>
-    
-    <span class="n">dfDayRets</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'dayOfWeek'</span><span class="p">)[</span><span class="s1">'ret'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">dfDayRets</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">dfDayRets</span><span class="o">.</span><span class="n">ret</span><span class="p">)</span>
-    <span class="c1"># Namimg the x and y axis</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'total returns'</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'day of the week'</span><span class="p">)</span>
-    <span class="c1"># Giving the title for the plot</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'best day to trade </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-    <span class="c1"># Displaying the bar plot</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
