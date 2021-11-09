@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-Ricky Macharm holds a master in Financial Engineering and is also proficient in deploying machine learning models. He is the founder of **[SisengAI](http://sisengai.com/** [^1].
+Ricky Macharm holds a master in Financial Engineering and is also proficient in deploying machine learning models. He is the founder of **[SisengAI](http://sisengai.com/)** [^1].
 
 
 
